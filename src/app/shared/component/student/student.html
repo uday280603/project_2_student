@@ -1,0 +1,43 @@
+@if (studentData().length > 0) {
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Name</th>
+          <th>Sirname</th>
+          <th>Class</th>
+          <th>Division</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Edit</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (std of students(); track std.stdId; let i = $index) {
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ std.stdName }}</td>
+            <td>{{ std.stdSirname }}</td>
+            <td>{{ std.stdClass }}</td>
+            <td>{{ std.stdDivision }}</td>
+            <td>{{ std.stdEmail }}</td>
+            <td>{{ std.stdMobileNo }}</td>
+            <td>
+              <button class="btn btn-sm btn-primary" (click)="onEditObj(std)">Edit</button>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="onRemoveStudent(std.stdId)">
+                Remove
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+@else {
+  <p class="bg-danger p-2 text-white text-center">NO STUDENT IN DATABASE..!</p>
+}

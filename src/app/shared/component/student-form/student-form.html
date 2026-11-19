@@ -1,0 +1,53 @@
+
+<mat-card>
+  <mat-card-content>
+    <form (submit)="onAddStudent($event)">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Student Name*</mat-label>
+        <input matInput [formField]="studentForm.stdName"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Student Sirname*</mat-label>
+        <input matInput [formField]="studentForm.stdSirname"/>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Student Class*</mat-label>
+        <mat-select [formField]="studentForm.stdClass">
+          <mat-option [value]="1">1</mat-option>
+          <mat-option [value]="2">2</mat-option>
+          <mat-option [value]="3">3</mat-option>
+          <mat-option [value]="4">4</mat-option>
+          <mat-option [value]="5">5</mat-option>
+          <mat-option [value]="6">6</mat-option>
+          <mat-option [value]="7">7</mat-option>
+          <mat-option [value]="8">8</mat-option>
+          <mat-option [value]="9">9</mat-option>
+          <mat-option [value]="10">10</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Student Division*</mat-label>
+        <mat-select [formField]="studentForm.stdDivision">
+          <mat-option value="A">A</mat-option>
+          <mat-option value="B">B</mat-option>
+          <mat-option value="C">C</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Student Email*</mat-label>
+        <input matInput [formField]="studentForm.stdEmail"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Student Phone*</mat-label>
+        <input matInput  [formField]="studentForm.stdMobileNo"/>
+      </mat-form-field>
+      @if (!isInEditMode) {
+        <button mat-raised-button color="primary" type="submit" class="w-100">Add Student</button>
+      } @else {
+        <button mat-raised-button color="primary" type="button" class="w-100" matButton="filled" (click)="onUpdateStudent()">
+          Update Student
+        </button>
+      }
+    </form>
+  </mat-card-content>
+</mat-card>
